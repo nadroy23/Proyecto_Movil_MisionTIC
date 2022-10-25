@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">APP Acarreos</string>
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="ingresar_Google">Ingresar con Google</string>
+</resources>
