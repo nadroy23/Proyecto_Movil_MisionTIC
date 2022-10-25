@@ -5,15 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class MainActivity : AppCompatActivity() {
+class Welcome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-
-
-    fun ingresar(btningresar: View){
-        val ingreso = Intent(this,Welcome::class.java)
-        startActivity(ingreso)
+        setContentView(R.layout.activity_welcome)
     }
 }
