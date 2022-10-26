@@ -41,7 +41,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/edit_user"
                 android:layout_width="168dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -55,7 +55,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/editTextTextPassword2"
+                android:id="@+id/edit_password"
                 android:layout_width="168dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
