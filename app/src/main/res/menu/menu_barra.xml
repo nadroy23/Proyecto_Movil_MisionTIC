@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+   <item
+       android:id="@+id/itm_buscar"
+       android:icon="@android:drawable/ic_menu_search"
+       android:title="Buscar"
+       app:showAsAction="always"/>
+   <item
+       android:id="@+id/itm_subir"
+       android:icon="@android:drawable/ic_menu_upload"
+       android:title="subir"
+       app:showAsAction="always"/>
+   <item
+       android:id="@+id/itm_llamar"
+       android:icon="@android:drawable/ic_menu_call"
+       android:title="Llamar"
+       app:showAsAction="always"/>
+   <item
+       android:id="@+id/itm_ayuda"
+       android:icon="@android:drawable/ic_menu_help"
+       android:title="Ayuda" />
+   <item
+       android:id="@+id/itm_direccion"
+       android:icon="@android:drawable/ic_menu_directions"
+       android:title="Direccion"
+       app:showAsAction="never"/>
+   <item
+       android:id="@+id/itm_editar"
+       android:icon="@android:drawable/ic_menu_edit"
+       android:title="Editar"
+       app:showAsAction="never"/>
+
+</menu>
