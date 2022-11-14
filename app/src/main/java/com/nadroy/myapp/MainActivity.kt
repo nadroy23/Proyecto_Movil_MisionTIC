@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "seleccion de direccion ", Toast.LENGTH_SHORT).show()
             true
         }
-
         R.id.itm_subir -> {
             val intento = Intent(this, Welcome::class.java)
             startActivity(intento)
@@ -70,21 +69,12 @@ class MainActivity : AppCompatActivity() {
             true
         }
         R.id.itm_editar -> {
-
-
             Toast.makeText(this, "seleccion editar ", Toast.LENGTH_SHORT).show()
-
-
             true
         }
         R.id.itm_llamar -> {
-
-
             Toast.makeText(this, "seleccion de llamar ", Toast.LENGTH_SHORT).show()
-
-
             true
-
         }
         else -> {
             super.onOptionsItemSelected(item)
