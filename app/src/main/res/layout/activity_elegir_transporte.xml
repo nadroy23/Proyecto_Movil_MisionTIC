@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/selec_transp"
         android:layout_width="226dp"
         android:layout_height="45dp"
         android:layout_marginTop="52dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/pedir_transporte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pedir Transporte"

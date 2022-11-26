@@ -52,7 +52,7 @@
         app:srcCompat="@drawable/camion" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView7"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/ing_google"
         app:layout_constraintTop_toBottomOf="@+id/edit_password"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -78,7 +78,7 @@
         app:srcCompat="@drawable/google" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/ing_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

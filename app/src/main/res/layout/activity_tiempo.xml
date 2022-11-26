@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/camion" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/viaje_finalizado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Viaje Finalizado"
@@ -26,7 +26,7 @@
         tools:layout_editor_absoluteY="242dp" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/no_llega"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"

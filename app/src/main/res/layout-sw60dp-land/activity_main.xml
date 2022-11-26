@@ -54,7 +54,7 @@
         tools:layout_editor_absoluteY="77dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
@@ -72,11 +72,11 @@
         android:layout_marginStart="44dp"
         android:layout_marginBottom="76dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/login"
         app:srcCompat="@drawable/google" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/ing_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
