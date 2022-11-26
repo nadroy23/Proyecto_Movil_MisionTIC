@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         if (edit_user!!.text.toString()=="admin"){
             if (edit_password!!.text.toString()=="admin"){
-                val ingreso = Intent(this,Welcome::class.java)
+                val ingreso = Intent(this,PedirTransporteActivity::class.java)
                 startActivity(ingreso)
             }
         }else{
@@ -40,14 +40,12 @@ class MainActivity : AppCompatActivity() {
                 .create().show()
         }
     }
-
+/*
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_barra, menu)
-
         return super.onCreateOptionsMenu(menu)
-
-
     }
+
 
     fun OnOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.itm_buscar -> {
@@ -80,4 +78,6 @@ class MainActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }
+
+     */
 }
