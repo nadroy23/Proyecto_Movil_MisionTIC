@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         edit_user = findViewById(R.id.edit_user)
         edit_password = findViewById(R.id.edit_password)
+
     }
 
 

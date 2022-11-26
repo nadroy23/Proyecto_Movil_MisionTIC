@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989383616311",
+    "project_id": "appacarreos",
+    "storage_bucket": "appacarreos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989383616311:android:43659469c835aa7eed9cb2",
+        "android_client_info": {
+          "package_name": "com.nadroy.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989383616311-p5dup0u9qtb8gs3upav7digop7e56sd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeMjh5I4nEr8bRlKbYCX_BwnkltCPBFDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989383616311-p5dup0u9qtb8gs3upav7digop7e56sd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
