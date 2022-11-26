@@ -6,17 +6,59 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 class DireccionesActivity : AppCompatActivity() {
+
+    private val db = FirebaseFirestore.getInstance()
+
+    private var select2: TextView?=null
+    private var dir_inicio: TextView?=null
+    private var dir_destino: TextView?=null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_direcciones)
+
+        select2 = findViewById(R.id.select2)
+
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
+        val carro = bundle?.getString("dir")
+
+        dir_inicio = findViewById(R.id.dir_inicio)
+        dir_destino = findViewById(R.id.dir_destino)
+
+
+        db.collection("transporte").document(carro.toString()).get().addOnSuccessListener {
+            select2!!.setText(it.get("carro") as String?)
+        }
     }
 
     fun tiempo(btnpedri_transporte: View){
-        val ingreso = Intent(this,TiempoActivity::class.java)
-        startActivity(ingreso)
+
+        if ((dir_inicio!!.text.isNotEmpty()) && (dir_destino!!.text.isNotEmpty())) {
+            val bundle = intent.extras
+            val tex_user = bundle?.getString("user")
+            val carro = bundle?.getString("dir")
+            val ingreso = Intent(this,TiempoActivity::class.java).apply {
+                putExtra("user",tex_user)
+                putExtra("dir",carro)
+                putExtra("dir1",dir_inicio!!.text.toString())
+                putExtra("dir2",dir_destino!!.text.toString())
+            }
+            startActivity(ingreso)
+        }else{
+            val dialogo = AlertDialog.Builder(this)
+                .setTitle("¡Alerta!")
+                .setMessage("Se debe especificar las 2 Direcciones, ejemplo: norte y sur") // R.string.variable
+                .create().show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -6,22 +6,37 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
 
 class PedirTransporteActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pedir_transporte)
+        //title = user
+        //tex_user!!.text = ("Bienvenid@: "+user)
     }
 
 
     fun ingresar_direccion(btnpedri_transporte: View){
-        val ingreso = Intent(this,IngrasarDireccionesActivity::class.java)
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
+        val ingreso = Intent(this,IngrasarDireccionesActivity::class.java).apply {
+            putExtra("user",tex_user)
+        }
         startActivity(ingreso)
     }
 
     fun cerrar(btnpedri_transporte: View){
+
+        FirebaseAuth.getInstance().signOut()
+        onBackPressed()
         val ingreso = Intent(this,MainActivity::class.java)
         startActivity(ingreso)
     }

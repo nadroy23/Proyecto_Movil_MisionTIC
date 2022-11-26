@@ -8,9 +8,15 @@ import android.view.MenuItem
 import android.widget.Toast
 
 class PrecioActivity : AppCompatActivity() {
+
+    private var tex_user = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_precio)
+
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

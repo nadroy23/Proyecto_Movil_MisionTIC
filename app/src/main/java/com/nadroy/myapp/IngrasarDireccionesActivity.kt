@@ -6,17 +6,39 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
 class IngrasarDireccionesActivity : AppCompatActivity() {
+
+
+    private var buscar_transporte: EditText?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingrasar_direcciones)
+
+        buscar_transporte = findViewById(R.id.buscar_transporte)
     }
 
     fun pedir_transporte(btnpedri_transporte: View){
-        val ingreso = Intent(this,ElegirTransporteActivity::class.java)
-        startActivity(ingreso)
+
+        if (buscar_transporte!!.text.isNotEmpty()) {
+            val bundle = intent.extras
+            val tex_user = bundle?.getString("user")
+            val ingreso = Intent(this,ElegirTransporteActivity::class.java).apply {
+                putExtra("user",tex_user)
+                putExtra("dir", buscar_transporte!!.text.toString() )
+            }
+            startActivity(ingreso)
+        }else{
+            val dialogo = AlertDialog.Builder(this)
+                .setTitle("¡Alerta!")
+                .setMessage("Se debe especificar una Direccion, ejemplo: norte.") // R.string.variable
+                .create().show()
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -1,18 +1,61 @@
 package com.nadroy.myapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
 class TiempoActivity : AppCompatActivity() {
+
+    private var valor = ""
+    private var tiempo_espera: TextView?=null
+    private var valor_tiem: TextView?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tiempo)
+
+        tiempo_espera = findViewById(R.id.tiempo_espera)
+        valor_tiem = findViewById(R.id.valor_tiem)
+        valor()
+    }
+
+
+    @SuppressLint("SetTextI18n")
+    fun valor(){
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
+        val carro = bundle?.getString("dir")
+        val dir1 = bundle?.getString("dir1")
+        val dir2 = bundle?.getString("dir2")
+        var valor1 = 0
+        var valor2 = 0
+        if (dir1.toString() == "norte"){
+            valor1 = 30000
+            tiempo_espera!!.setText("40")
+        }else if (dir1.toString() == "sur"){
+            valor1 = 50000
+            tiempo_espera!!.setText("50")
+        }else{
+            valor1 = 40000
+            tiempo_espera!!.setText("60")
+        }
+
+        if (dir2.toString() == "norte"){
+            valor2 = 30000
+        }else if (dir2.toString() == "sur"){
+            valor2 = 50000
+        }else{
+            valor2 = 40000
+        }
+        val total = (valor1+valor2).toString()
+        valor_tiem!!.setText(total)
     }
 
     fun no_llega(btnpedri_transporte: View){
@@ -24,7 +67,18 @@ class TiempoActivity : AppCompatActivity() {
     }
 
     fun fin(btnpedri_transporte: View){
-        val ingreso = Intent(this,PagosActivity::class.java)
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
+        val carro = bundle?.getString("dir")
+        val dir1 = bundle?.getString("dir1")
+        val dir2 = bundle?.getString("dir2")
+        val ingreso = Intent(this,PagosActivity::class.java).apply {
+            putExtra("user",tex_user)
+            putExtra("dir",carro)
+            putExtra("dir1",dir1)
+            putExtra("dir2",dir2)
+            putExtra("valor",valor_tiem!!.text.toString())
+        }
         startActivity(ingreso)
     }
 

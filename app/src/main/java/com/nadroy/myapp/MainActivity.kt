@@ -10,6 +10,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthRegistrar
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,22 +27,73 @@ class MainActivity : AppCompatActivity() {
         edit_user = findViewById(R.id.edit_user)
         edit_password = findViewById(R.id.edit_password)
 
+        //registrar()
+    }
+
+    fun registrar(btnregistro: View){
+        if ((edit_user!!.text.isNotEmpty()) && (edit_password!!.text.isNotEmpty())) {
+            FirebaseAuth.getInstance()
+                .createUserWithEmailAndPassword(edit_user!!.text.toString(),
+                edit_password!!.text.toString()).addOnCompleteListener{
+
+                if (it.isSuccessful){
+                    val ingreso = Intent(this, PedirTransporteActivity::class.java).apply {
+                        putExtra("user",edit_user!!.text.toString())
+                    }
+                    startActivity(ingreso)
+
+                }else{
+                    val dialogo = AlertDialog.Builder(this)
+                        .setTitle("¡Error!")
+                        .setMessage("No se pudo hacer el registro...") // R.string.variable
+                        .create().show()
+                }
+            }
+        }
+        else{
+            val dialogo = AlertDialog.Builder(this)
+                .setTitle("¡Alerta!")
+                .setMessage("Debe agragar un correo y contraseña para registrar...") // R.string.variable
+                .create().show()
+        }
     }
 
 
     fun ingresar(btningresar: View){
+        if ((edit_user!!.text.isNotEmpty()) && (edit_password!!.text.isNotEmpty())) {
+            FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(edit_user!!.text.toString(),
+                edit_password!!.text.toString()).addOnCompleteListener{
 
-        if (edit_user!!.text.toString()=="admin"){
-            if (edit_password!!.text.toString()=="admin"){
-                val ingreso = Intent(this,PedirTransporteActivity::class.java)
-                startActivity(ingreso)
+                if (it.isSuccessful){
+                        val ingreso = Intent(this, PedirTransporteActivity::class.java).apply {
+                            putExtra("user",edit_user!!.text.toString())
+                        }
+                        startActivity(ingreso)
+                }else{
+                    val dialogo = AlertDialog.Builder(this)
+                        .setTitle("¡Error!")
+                        .setMessage("El usuario no se pudo identificar...") // R.string.variable
+                        .create().show()
+                }
             }
-        }else{
+        }
+        else{
             val dialogo = AlertDialog.Builder(this)
                 .setTitle("¡Alerta!")
                 .setMessage("Usuario o Contraseña incorrectos...") // R.string.variable
                 .create().show()
         }
+
+        /*
+        if (edit_user!!.text.toString()=="admin"){
+            if (edit_password!!.text.toString()=="admin"){
+                val ingreso = Intent(this,PedirTransporteActivity::class.java)
+                startActivity(ingreso)
+            }
+        }
+         */
+
     }
 /*
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

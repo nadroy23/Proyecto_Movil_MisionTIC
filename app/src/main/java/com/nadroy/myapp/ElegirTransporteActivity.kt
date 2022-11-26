@@ -6,16 +6,43 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Arrays
 
 class ElegirTransporteActivity : AppCompatActivity() {
+
+    private val db = FirebaseFirestore.getInstance()
+
+    private var selec_transp: TextView?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elegir_transporte)
+
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
+        val zona = bundle?.getString("dir")
+
+        selec_transp = findViewById(R.id.selec_transp)
+
+        db.collection("transporte").document(zona.toString()).get().addOnSuccessListener {
+            selec_transp!!.setText(it.get("carro") as String?)
+        }
     }
 
+
     fun direcciones(btnpedri_transporte: View){
-        val ingreso = Intent(this,DireccionesActivity::class.java)
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
+        val zona = bundle?.getString("dir")
+        val ingreso = Intent(this,DireccionesActivity::class.java).apply {
+            putExtra("user",tex_user)
+            putExtra("dir",zona)
+        }
         startActivity(ingreso)
     }
 

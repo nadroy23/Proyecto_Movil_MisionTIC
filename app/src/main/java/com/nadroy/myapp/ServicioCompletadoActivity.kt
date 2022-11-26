@@ -9,13 +9,21 @@ import android.view.View
 import android.widget.Toast
 
 class ServicioCompletadoActivity : AppCompatActivity() {
+
+    private var tex_user = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_servicio_completado)
+
+        val bundle = intent.extras
+        val tex_user = bundle?.getString("user")
     }
 
     fun regresa(btnpedri_transporte: View){
-        val ingreso = Intent(this,PedirTransporteActivity::class.java)
+        val ingreso = Intent(this,PedirTransporteActivity::class.java).apply {
+            putExtra("user",tex_user)
+        }
         startActivity(ingreso)
     }
 

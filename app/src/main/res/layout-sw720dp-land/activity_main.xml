@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="registrar"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="103dp">
@@ -80,6 +81,7 @@
         android:layout_width="307dp"
         android:layout_height="49dp"
         android:layout_marginTop="8dp"
+        android:onClick="registrar"
         android:text="@string/ingresar_Google"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
